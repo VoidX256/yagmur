@@ -1,0 +1,455 @@
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        45deg, 
+        #000428, 
+        #004e92,
+        #000428
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    overflow: hidden;
+    font-family: 'Dancing Script', cursive;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: 1rem;
+    max-width: 90%;
+    width: 600px;
+}
+
+
+
+canvas#fallingHearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.heart-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    animation: float 2s ease-in-out infinite;
+}
+
+@media (max-width: 480px) {
+    .heart-container {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.heart {
+    position: absolute;
+    width: 100px;
+    height: 90px;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .heart {
+        width: 80px;
+        height: 72px;
+    }
+}
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #ff3366;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    animation: beat 1.2s ease-in-out infinite;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.surprise-button {
+    position: relative;
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    background: linear-gradient(45deg, #ff3366, #ff6b6b);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+    overflow: hidden;
+}
+
+.surprise-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 51, 102, 0.4);
+}
+
+.surprise-button:active {
+    transform: translateY(1px);
+}
+
+.button-heart {
+    display: inline-block;
+    margin: 0 5px;
+    animation: buttonHeartBeat 1.2s ease-in-out infinite;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+z-index: 1000;
+
+.modal-content {
+    position: relative;
+    background-color: #1a1a1a;
+    margin: 5% auto;
+    padding: 20px;
+    border: 2px solid #ff3366;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 15% auto;
+        padding: 10px;
+        width: 95%;
+    }
+}
+
+.close-button {
+    color: #ff3366;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.close-button:hover {
+    color: #ff6b6b;
+}
+
+#surpriseVideo {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.3);
+}
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+}
+
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 30px;
+    color: #ff3366;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #ff6b6b;
+}
+
+#videoContainer {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+}
+
+@keyframes buttonHeartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.beating-heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    animation: heartBeat 1.2s ease-in-out infinite;
+}
+
+@keyframes beat {
+    0% { transform: scale(1) rotate(-45deg); }
+    15% { transform: scale(1.25) rotate(-45deg); }
+    30% { transform: scale(1) rotate(-45deg); }
+    45% { transform: scale(1.15) rotate(-45deg); }
+    60% { transform: scale(1) rotate(-45deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.surprise-button {
+    position: relative;
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 1.8em;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    background: linear-gradient(45deg, #ff3366, #ff6b6b);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+}
+
+@media (max-width: 768px) {
+    .surprise-button {
+        padding: 12px 30px;
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .surprise-button {
+        padding: 10px 25px;
+        font-size: 1.3em;
+        margin-top: 20px;
+    }
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button-heart {
+    display: inline-block;
+    animation: buttonBeat 1.2s ease-in-out infinite;
+}
+
+.surprise-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 51, 102, 0.4);
+}
+
+.surprise-button:active {
+    transform: translateY(1px);
+}
+
+#heartCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart:before,
+.heart:after {
+    animation: heartBeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartBeatAlt {
+    0% {
+        transform-origin: 0 100%;
+        transform: rotate(-45deg) scale(1);
+    }
+    15% {
+        transform-origin: 0 100%;
+        transform: rotate(-45deg) scale(1.3);
+    }
+    30% {
+        transform-origin: 0 100%;
+        transform: rotate(-45deg) scale(1);
+    }
+    45% {
+        transform-origin: 0 100%;
+        transform: rotate(-45deg) scale(1.3);
+    }
+    100% {
+        transform-origin: 0 100%;
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+.message {
+    padding: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 51, 102, 0.8);
+    animation: fadeIn 2s ease-in forwards 3s;
+    opacity: 0;
+}
+
+.birthday-text {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 51, 102, 0.9);
+}
+
+.name {
+    color: #ff3366;
+    font-size: 1.2em;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.romantic-text {
+    font-size: 1.8em;
+    line-height: 1.5;
+    margin-top: 30px;
+    color: #ff9999;
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards 4s;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes glow {
+    0%, 100% { 
+        text-shadow: 0 0 15px rgba(255, 51, 102, 0.9);
+    }
+    50% { 
+        text-shadow: 0 0 30px rgba(255, 51, 102, 1), 
+                     0 0 40px rgba(255, 51, 102, 0.8);
+    }
+}
+
+.container {
+    text-align: center;
+}
+
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin: 30px auto;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #ff3366;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.birthday-text {
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px rgba(255, 51, 102, 0.8);
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards 0.5s;
+}
+
+.name {
+    color: #ff3366;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
