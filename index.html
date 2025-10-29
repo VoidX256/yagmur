@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İyi ki Doğdun Yağmur!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="fireworksCanvas"></canvas>
+    <div class="container">
+        <div class="heart-container">
+            <div class="heart"></div>
+        </div>
+        <canvas id="fallingHearts"></canvas>
+        <div class="message">
+            <div class="birthday-text">
+                İyi ki Doğdun<br>
+                <span class="name">Yağmurrrrr!</span>
+            </div>
+            <div class="romantic-text">
+                Hayatımın en güzel parçası,<br>
+                Her anı seninle güzelleşen dünyamın baş kahramanı...<br>
+                Doğum günün kutlu olsun ♥
+            </div>
+        </div>
+        <button class="surprise-button">
+            <span class="button-content">
+                <span>Sürpriz</span>
+                <span class="button-heart">♥</span>
+            </span>
+        </button>
+
+        <div class="modal" id="videoModal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <video id="surpriseVideo" width="100%" controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Tarayıcınız video etiketini desteklemiyor.
+                </video>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="fireworks.js"></script>
+</body>
+</html>
